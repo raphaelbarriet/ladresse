@@ -1,0 +1,70 @@
+@import url(./bootstrap.min.css);
+
+
+/*Image*/
+
+
+
+/*App*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cover-image {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+}
+
+.cover-image::after{
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../public/images/cuisine.jpg);
+    top: 84.75px;
+    opacity: 0.4;
+    left: 0;
+    bottom: calc(100vh - (450px + 84.75px));
+    right: 0;
+    position: absolute;
+}
+
+.resto-title {
+    max-width: 450px;
+    height: 100px;
+    transform: translateY(120px);
+    text-align: center;
+    color: black;
+}
+
+.resto-title > h1 {
+    font-size: 3rem; 
+}
+
+
+.resto-title > span {
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 450px){
+    .resto-title > h1 {
+        font-size: 4rem; 
+    }
+    .resto-title > span {
+        font-size: 2.0rem;
+    }
+}
+
+@media screen and (min-width: 800px){
+
+}
+
+@media screen and (min-width: 1000px){
+    .cover-image::after{
+        top: 88.88px;
+    }
+}
+
+
