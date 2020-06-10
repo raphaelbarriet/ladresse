@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/c805819130.js" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -25,7 +27,10 @@
         <a class="nav-link" href="#">Horaire</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Réservation</a>
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">NewlLetter</a>
       </li>
     </ul>
   </div>
@@ -33,8 +38,29 @@
 {#EndNavbar#}
 
         {% block body %}{% endblock %}
+
+{#Footer#}
+<div class="footer">
+  <div class="container">
+   <div class="row ">
+     <div class="col-md-6 mb-4 information-footer text-center">
+         <h3 class="title-footer">Nous suivre : 
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-google"></i></a>
+         </h3>
+       <p class="mt-5">Adress: 2 bd de diepholz 79100 THOUARS. Nous somme situé en plein dans la gallerie marchande!</p>
+     </div>
+     <div class="col-md-6 mb-4">
+       <iframe class="widget" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.010006805647!2d-0.19868498439108617!3d46.98113807914809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807907e4bf15af1%3A0x2523ddf32bebc73d!2s2%20Boulevard%20de%20Diepholz%2C%2079100%20Thouars!5e0!3m2!1sfr!2sfr!4v1591813414958!5m2!1sfr!2sfr" width="100%" height="300px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+     </div>
+   </div>
+  </div>
+</div>
+{#EndFooter#}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('js/homeMenu') }}
         {% endblock %}
     </body>
 </html>

@@ -1,0 +1,65 @@
+.cover-image {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.resto-title {
+    max-width: 450px;
+    height: 170px;
+    text-align: center;
+    color: black;
+    position: absolute;
+    top: 209px;
+}
+
+.resto-title > h1 {
+    font-size: 3rem; 
+}
+
+
+.resto-title > span {
+    font-size: 1.4rem;
+}
+
+.menu-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.menu-card {
+    border-color: 	rgb(255,223,0);
+    max-width: 500px;
+    height: auto;
+}
+
+
+.plat-title {
+    color: gold;
+    font-family: 'Great Vibes', cursive;
+}
+
+.plat-title > h3 {
+    font-weight: 800;
+}
+
+
+
+@media screen and (min-width: 450px){
+    .resto-title > h1 {
+        font-size: 4rem; 
+    }
+    .resto-title > span {
+        font-size: 2.0rem;
+    }
+}
+
+@media screen and (min-width: 800px){
+
+}
+
+@media screen and (min-width: 1000px){
+
+}

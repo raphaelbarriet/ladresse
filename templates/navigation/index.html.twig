@@ -2,14 +2,47 @@
 
 {% block body %}
 
+{#Images#}
+{% set coverImage = asset('build/images/coverImage.jpg') %}
+{% set cuisine = asset('build/images/cuisine.jpg') %}
+{% set hamburger = asset('build/images/hamburger.jpg') %}
+{#EndImages#}
+
   <div class="cover-image">
-     <div class="resto-title">
-        <h1>L'adress</h1> <br>
-        <span>(bar, brasserie et café)</span>
-     </div>
+     <img 
+       src="{{ coverImage }}"
+       class="img-fluid op-6" 
+       srcset="{{coverImage}} 550w, {{cuisine}} 1500w"
+       sizes="(max-width: 550px) 550px, 1500px"
+       size="100%" 
+     />
+        <div class="resto-title">
+                 <h1>L'adress</h1> <br>
+            <span>(bar, brasserie et café)</span>
+        </div>
   </div>
 
+  <div id="home-menu" class="container my-5">
+     {% for i in 0..1 %}
+        <div class="menu-container mb-5 reveal">
+           <div class="row d-flex justify-content-center">
+            <div class="menu-card card shadow p-3 bg-white rounded col-md-4 ">
+                 <div class="card-body">
+                    <img class="img-fluid" style="height: auto; width: 360px; display: block;" src={{hamburger}} alt=""/>
+                    <h2 class="card-title text-center mt-4">Hamburger</h2>
+                    <button class="btn btn-primary btn-more"><span class="more-span">+</span></button>
+                 </div>
+            </div>
+               <div class="col-md-6 ml-5 mt-5">
+                <h2 class="plat-title"><em>Discover</em></h2>
+                <h3><strong>Notre hamburger</strong></h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste, a rem dolorem ratione facilis consequatur doloribus? Magni iste id ipsa. Fuga labore, quod voluptate atque alias facere tempore autem.</p>
+              <a href="#" class="btn btn-warning mt-4">Voir plus ...</a>
+            </div>
+           </div>
+       </div>
+     {% endfor %}
+  </div>
 
-<div class="container"></div>
 
 {% endblock %}
