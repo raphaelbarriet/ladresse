@@ -1,0 +1,38 @@
+ {% extends "admin/base.html.twig" %}
+
+
+  {% block body %}
+  
+   <div class="container-fluid">
+       <div class="row">
+       <div class="col-md-4">
+         <div class="card text-dark bg-light  mt-3" >
+             <div class="card-header">
+                <h2 class="card-title">Information sur le site : </h2>
+             </div>
+              <div class="card-body">
+                 <h4 class="card-title"><i class="fas fa-utensils mr-2"></i> Nombre de plat a la carte:</h4>
+                 <p class="card-text">Vous proposer aujourd'hui {{menu.menu('menu') | length}} plats dont {{menu.entry | length}} entrées {{menu.mainDish | length}} plat et {{menu.dessert | length}} dessert</p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><i class="far fa-calendar-times mr-2"></i>Nombre d'évenement a venir:</h4>
+               <p class="card-text">Vous avez 4 évènements de programmer!</p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><i class="fas fa-door-open mr-2"></i>Horaire d'ouverture:</h4>
+               <p class="card-text">Aujourd'hui vous ouvrer a 8h et fermer a 20h</p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><i class="far fa-eye"></i>Nombre de visite:</h4>
+               <p class="card-text">Le site a été visiter plus de 2000 fois</p>
+              </div>
+         </div>
+       </div>
+       <div class="col-md-8">
+        <h2 class="my-3">Evenement a venir :</h2>
+         {% include "services/event_show.html.twig" %}
+       </div>
+       </div>
+   </div>
+  
+  {% endblock %}

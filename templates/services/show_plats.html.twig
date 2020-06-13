@@ -1,0 +1,11 @@
+{% for dish in dishs %}
+      <div class="row plat-name">
+        <div class="col-9">
+            <p class="card-text name-show">-{{dish.plat}}</p>
+            <small>{{dish.ingredient}}</small>
+         </div>
+        <div class="col-3">
+            <span class="price-plat">{{dish.price}} &euro;</span>
+        </div>
+    </div> 
+{% endfor %}

@@ -1,7 +1,7 @@
 const option = {
     root: null,
     rootMargin: '0px',
-    threshold: .1,
+    threshold: .3,
 }
  
 function handleIntersc (entries, observer) {

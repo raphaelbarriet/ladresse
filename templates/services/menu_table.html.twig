@@ -1,0 +1,36 @@
+<div class="table-responsive-lg">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero du plat :</th>
+      <th scope="col">Nom du plat</th>
+      <th scope="col">Ingredient</th>
+      <th scope="col">Prix</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+     <tbody>
+        {% for plat in plats %}
+            <tr>
+           <th scope="row">{{plat.id}}</th>
+           <td>{{plat.plat}}</td>
+           <td>{{plat.ingredient}}</td>
+           <td>{{plat.price}}</td>
+           <td>
+             <div class="row">
+               <div class="col-4">
+                 <a href="#" class="badge badge-pill badge-danger"><i class="fas fa-trash"></i></a>
+               </div>
+               <div class="col-4">
+                 <a href="#" class="badge badge-pill badge-info"><i class="fas fa-pen"></i></a>
+               </div>
+               <div class="col-4">
+                 <a href="#" class="badge badge-pill badge-success"><i class="fas fa-plus"></i></a>
+               </div>
+             </div>
+           </td>
+        </tr>
+        {% endfor %}
+     </tbody>
+</table>
+</div>

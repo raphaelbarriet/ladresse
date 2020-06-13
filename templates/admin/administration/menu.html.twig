@@ -1,0 +1,15 @@
+{% extends "admin/base.html.twig" %}
+
+
+{% block body %}
+
+ <div class="container mt-5">
+       
+         <h2 class="my-4">Menu du jour</h2>
+        {% include "services/menu_table.html.twig" with {"plats" : dayMenu}%}
+
+         <h2 class="my-4">Plat a la carte :</h2>
+          {% include "services/menu_table.html.twig" with {"plats" : menu}%}
+ </div>
+
+{% endblock %}

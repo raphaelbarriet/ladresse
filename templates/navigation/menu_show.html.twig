@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+ Menu
+{% endblock %}
+
+{% block body %}
+
+ <div class="container-menu mt-4">
+   <div class="header-menu text-center">
+      <h1 class="main-title">L'adresse ~ Menu</h1>
+
+   </div>
+
+     <div class="row menu-show-container shadow p-3 mb-5 bg-white rounded">
+       <div class="col-md-5 current-menu rounded">
+          <h3 class="card-title-menu">Carte du jour:</h3>
+           <div class="card border-primary mb-3 mt-5" style="max-width: 26rem; margin:auto;">
+             <div class="card-body">
+                
+                <h4 class="card-title text-center">Entrée</h4>
+              
+                 {% include "services/show_plats.html.twig" with {"dishs" : menu.dayEntry} %}
+
+                <h4 class="card-title text-center ">Plat</h4>
+                 
+                 {% include "services/show_plats.html.twig" with {"dishs" : menu.dayMainDish} %}
+                
+                <h4 class="card-title text-center ">Dessert</h4>
+                 
+                {% include "services/show_plats.html.twig" with {"dishs" : menu.dayDessert} %}
+
+                  <h5 class="card-title text-center mt-4">(Entrée + plat + dessert = 12 &euro;)</h5>
+                <hr>
+
+               <h4 class="card-title mt-3">Les plus acheté:</h4>
+                <ul class="list-group">
+                  <li class="list-group-item ">-Salade Périgourdine </li>
+                  <li class="list-group-item ">-Aiguillete de canard au miel</li>
+                  <li class="list-group-item ">-Burger Italien a la mozerrala</li>
+                  <li class="list-group-item">-Café gourmands</li>
+                </ul>
+             </div>
+           </div>
+       </div>
+
+       <div class="col-md-6 full-menu rounded">
+         <h3 class="card-title-menu">Les indisosiable:</h3>
+
+        <div class="card border-primary mb-3 my-5" style="max-width: 35rem; margin:auto;">
+             <div class="card-body">
+                <h4 class="card-title text-center">Entrée</h4>
+              
+                 {% include "services/show_plats.html.twig" with {"dishs" : menu.entry} %}
+
+                <h4 class="card-title text-center ">Plat</h4>
+                 
+                 {% include "services/show_plats.html.twig" with {"dishs" : menu.mainDish} %}
+                
+                <h4 class="card-title text-center">Dessert</h4>
+                 
+                {% include "services/show_plats.html.twig" with {"dishs" : menu.dessert} %}
+                 
+
+             </div>
+
+       </div>
+
+     </div>
+     </div>
+ </div>
+
+{% endblock %}

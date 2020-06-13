@@ -13,7 +13,7 @@
     <body>
 {#Navbar#}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">L'Adress</a>
+  <a class="navbar-brand" href="{{path("home.index")}}">L'Adress</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,13 +21,16 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Horaire</a>
+        <a class="nav-link" href="{{path("menu.index")}}">Menu<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Latest news</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Horaire</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">NewlLetter</a>
@@ -45,9 +48,9 @@
    <div class="row ">
      <div class="col-md-6 mb-4 information-footer text-center">
          <h3 class="title-footer">Nous suivre : 
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-google"></i></a>
+            <a target="_blank" href="https://www.facebook.com/ladresse2019"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="#"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.google.com/search?q=l%27adresse+thouars&rlz=1C1NDCM_frFR864FR864&oq=l%27adr&aqs=chrome.0.69i59l3j69i57j0j69i61l3.1815j0j7&sourceid=chrome&ie=UTF-8"><i class="fab fa-google"></i></a>
          </h3>
        <p class="mt-5">Adress: 2 bd de diepholz 79100 THOUARS. Nous somme situé en plein dans la gallerie marchande!</p>
      </div>
