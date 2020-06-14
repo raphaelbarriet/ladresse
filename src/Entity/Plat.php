@@ -5,8 +5,10 @@ namespace App\Entity;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PlatRepository;
+use Doctrine\ORM\Mapping\PreUpdate;
 use Doctrine\ORM\Mapping\PrePersist;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PlatRepository::class)
@@ -23,6 +25,14 @@ class Plat
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom du plat est trop court",
+     *      maxMessage = "Le nom du plat est trop long il ne peut pas dépasser 50 charactère",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 
@@ -33,16 +43,26 @@ class Plat
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 15,
+     *      max = 300,
+     *      minMessage = "La description est trop court",
+     *      maxMessage = "La description est trop long elle ne peut pas dépasser 200 charactère",
+     *      allowEmptyString = false
+     * )
      */
     private $description;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $ingredient;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $price;
 
@@ -60,6 +80,7 @@ class Plat
 
     /** 
      * @PrePersist
+     * @PreUpdate
     */
     public function generateSlug(){
         if(empty($this->slug)){

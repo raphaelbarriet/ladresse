@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+  <div class="container">
+     <div class="container mb-5" style="max-height:800px; min-height:400px">
+       <h1 class="my-5">{{plat.name}} : </h1>
+         <div class="row">
+           <div class="col-md-4">
+             <img src="{{asset('build/images/hamburger.jpg')}}" alt="" class="img-fluid">
+           </div>
+           <div class="col-md-8">
+              <h2 class="my-4"> Découvret notre {{plat.name}}!</h2>
+              <p class="my-4">Petite histoire : {{plat.description}}</p>
+              <p class="my-4"><u>Ingredient : {{plat.ingredient}}</u></p>
+           </div>
+         </div>
+     </div>
+  </div>
+
+{% endblock %}

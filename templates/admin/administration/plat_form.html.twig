@@ -1,0 +1,25 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+  <div class="container my-5 bg-light pb-5 shadow p-3 mb-5 bg-white rounded">
+  <h2 class="my-5">AJouter ou Modifier un plat :</h2>
+     
+         {{form_start(form)}}
+          <div class="row py-4">
+            <div class="col-md-7">
+             {{form_row(form.name)}}
+             {{form_row(form.description)}}
+             {{form_row(form.ingredient)}}
+             {{form_row(form.price)}}
+            </div>
+          <div class="col-md-5">
+             {{form_row(form.category)}}
+             {{form_row(form.menu)}}
+            <button class="btn btn-primary float-right my-5">Valider ?</button>
+           </div>
+         </div>
+         {{form_end(form)}}
+  </div>
+
+{% endblock %}

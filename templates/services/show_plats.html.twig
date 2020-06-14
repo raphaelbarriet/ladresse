@@ -1,7 +1,7 @@
 {% for dish in dishs %}
       <div class="row plat-name">
         <div class="col-9">
-            <p class="card-text name-show">-{{dish.plat}}</p>
+            <p class="card-text name-show"><a href="{{path("plat.show", {"slug" : dish.slug})}}">-{{dish.plat}}</a></p>
             <small>{{dish.ingredient}}</small>
          </div>
         <div class="col-3">

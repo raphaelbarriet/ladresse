@@ -24,7 +24,7 @@ class MenuFilter {
      */
     public function getMenuByCategory(string $menu, string $category){
         return  $this->em->createQuery(
-            "SELECT p.name as plat, p.ingredient, p.price, c.name as category
+            "SELECT p.name as plat, p.ingredient, p.price, c.name as category, p.slug
              FROM App\Entity\Plat p
              JOIN p.category c
              JOIN p.menu m
@@ -35,12 +35,20 @@ class MenuFilter {
 
     public function getMenu(string $menu){
         return  $this->em->createQuery(
-            "SELECT p.id, p.name as plat, p.ingredient, p.price, c.name as category
+            "SELECT p.id, p.slug,p.name as plat, p.ingredient, p.price, c.name as category
              FROM App\Entity\Plat p
              JOIN p.category c
              JOIN p.menu m
              WHERE m.name = '$menu'")
                 ->getResult()
+        ;
+    }
+
+    public function getRandomDish(){
+        return $this->em->createQuery("SELECT p.name, p.description, p.slug FROM App\Entity\Plat p")
+                        ->setMaxResults(2)
+                        ->setFirstResult(mt_rand(0, 10))
+                        ->getResult()
         ;
     }
 
