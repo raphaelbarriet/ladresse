@@ -30,7 +30,7 @@ class AdministrationController extends AbstractController {
   }
 
   /** 
-   * @Route("/admin/menu", name="administartion.menu")
+   * @Route("/admin/menu", name="administration.menu")
   */
   public function menu(){
       return $this->render("admin/administration/menu.html.twig", [

@@ -45,7 +45,10 @@ class MenuFilter {
     }
 
     public function getRandomDish(){
-        return $this->em->createQuery("SELECT p.name, p.description, p.slug FROM App\Entity\Plat p")
+        return $this->em->createQuery(
+            "SELECT p.name, p.description, p.slug
+             FROM App\Entity\Plat p
+             ")
                         ->setMaxResults(2)
                         ->setFirstResult(mt_rand(0, 10))
                         ->getResult()

@@ -19,7 +19,16 @@ class PlatRepository extends ServiceEntityRepository
         parent::__construct($registry, Plat::class);
     }
 
-
+   public function getVitrine($category){
+       return $this->createQueryBuilder("p")
+                   ->andWhere("c.name = :cat")
+                   ->setParameter('cat', $category)
+                   ->join('p.category', "c")
+                   ->setMaxResults(2)
+                   ->getQuery()
+                   ->getResult()
+       ;
+   }
 
 
     // /**

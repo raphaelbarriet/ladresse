@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Image;
 use App\Entity\Plat;
 use App\Form\PlatType;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,17 +24,23 @@ class CartGestionController extends AbstractController {
    * @Route("/admin/add", name="gestion.add")
   */
    public function add(Request $request){
-
       $plat = new Plat();
+      
       $form = $this->createForm(PlatType::class, $plat);
       
       $form->handleRequest($request);
 
        if($form->isSubmitted() && $form->isValid()){
+
+           foreach($plat->getImages() as $image){
+             $image->setPlat($plat);
+             $this->em->persist($image);
+           }
+
           $this->em->persist($plat);
           $this->em->flush();
           $this->addFlash('success' , "votre plat a bien été enregistrer");
-          return $this->redirectToRoute("administartion.index");
+          return $this->redirectToRoute("administration.menu");
        }
 
       return $this->render('admin/administration/plat_form.html.twig', [
@@ -44,12 +52,27 @@ class CartGestionController extends AbstractController {
     * @Route("/admin/update/{slug}", name="gestion.update")
    */
    public function update( Request $request,Plat $plat){
+
       $form = $this->createForm(PlatType::class, $plat);
       $form->handleRequest($request);
 
+      $originalImages = new ArrayCollection();
+
+       foreach($plat->getImages() as $original){
+          $originalImages->add($original);
+       }
+
       if($form->isSubmitted() && $form->isValid()){
+        foreach($originalImages as $image){
+           if(false === $plat->getImages()->contains($image)){
+              $this->em->remove($image);
+           } else {
+             $image->setPlat($plat);
+             $this->em->persist($image);
+           }
+        }
         $this->em->flush();
-        return $this->redirectToRoute("administartion.menu");
+        return $this->redirectToRoute("administration.menu");
       }
       return $this->render('admin/administration/plat_form.html.twig', [
         "form" => $form->createView(),
@@ -62,7 +85,7 @@ class CartGestionController extends AbstractController {
    public function remove(Plat $plat){
      $this->em->remove($plat);
      $this->em->flush();
-     return $this->redirectToRoute("administartion.menu");
+     return $this->redirectToRoute("administration.menu");
    }
 
 }

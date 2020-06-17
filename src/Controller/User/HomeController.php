@@ -13,10 +13,11 @@ class HomeController extends AbstractController {
     /**
      * @Route("/", name="home.index")
      */
-    public function index(MenuFilter $menuFilter)
+    public function index(MenuFilter $menuFilter, PlatRepository $platRepository)
     {
+        
         return $this->render("navigation/index.html.twig", [
-            "plats" => $menuFilter->getRandomDish()
+            "plats" => $platRepository->getVitrine('plat'),
         ]);
     }
 

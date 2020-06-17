@@ -1,8 +1,10 @@
 {% extends "admin/base.html.twig" %}
 
+{% form_theme form _self %}
+
 {% block body %}
 
-  <div class="container my-5 bg-light pb-5 shadow p-3 mb-5 bg-white rounded">
+  <div class="container my-5 bg-light pb-5 shadow p-3 mb-5 bg-white rounded pr-4 pl-4">
   <h2 class="my-5">AJouter ou Modifier un plat :</h2>
      
          {{form_start(form)}}
@@ -11,15 +13,63 @@
              {{form_row(form.name)}}
              {{form_row(form.description)}}
              {{form_row(form.ingredient)}}
-             {{form_row(form.price)}}
             </div>
           <div class="col-md-5">
+            {{form_row(form.price)}}
              {{form_row(form.category)}}
              {{form_row(form.menu)}}
-            <button class="btn btn-primary float-right my-5">Valider ?</button>
            </div>
          </div>
+          {{form_widget(form)}}
+          <button class="btn btn-primary ">Valider ?</button>
          {{form_end(form)}}
   </div>
 
+{% endblock %}
+
+{% block _plat_images_widget %}
+
+  <h2>Ajouter des images</h2>
+
+<small> Cliquer sur le + pour ajouter une image</small>
+   {{form_widget(form)}}
+
+   <div class="form-group mt-4">
+     <button type="button" id="add-image" class="btn btn-info rounded">+</button>
+   </div>
+
+{% endblock %}
+
+{% block _plat_images_entry_row %}
+    {{form_widget(form)}}
+{% endblock %}
+
+{% block _plat_images_entry_widget %}
+
+  <div class="form-groupe" id="bloc_{{id}}" style="max-width: 900px">
+      <div class="row my-4">
+         {{form_label(form.imageFile)}}
+        <div class="col-9">
+         <div class="row">
+            <div class="col-10">
+              {{form_widget(form.imageFile)}}
+            </div>
+            <div class="col-2">
+               <button type="button" data-action="delete" data-target="#bloc_{{id}}" class="btn btn-danger rounded"><i class="fas fa-trash"></i></button>
+            </div>
+         </div>
+        </div>
+      </div>
+  </div>
+
+{% endblock %}
+
+{% block _plat_images_row %}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+{% endblock %}
+
+
+{% block javascripts %}
+   {{encore_entry_script_tags('js/addImage')}}
 {% endblock %}

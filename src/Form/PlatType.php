@@ -3,11 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Plat;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Form\ImageType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PlatType extends ApplicationType
 {
@@ -20,6 +23,7 @@ class PlatType extends ApplicationType
             ->add('price', IntegerType::class, $this->getOptions("*Prix", "", ["attr" => ["min" => 1, "max" => "100"]]))
             ->add('category')
             ->add('menu')
+            ->add('images', CollectionType::class,['entry_type' => ImageType::class, "allow_add" => true, "allow_delete" => true, 'by_reference'  => false, 'delete_empty'  => true])
         ;
     }
 

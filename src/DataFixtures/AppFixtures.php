@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Categories;
+use App\Entity\Image;
 use App\Entity\Menu;
 use Faker\Factory;
 use App\Entity\Plat;
@@ -59,6 +60,7 @@ class AppFixtures extends Fixture
                   ->setCategory($categories[mt_rand(0, 2)])
                   ->setMenu($menus[mt_rand(0, 1)])
              ;
+
              $manager->persist($plat);
          }
 

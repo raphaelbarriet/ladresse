@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PlatRepository;
 use Doctrine\ORM\Mapping\PreUpdate;
@@ -46,7 +49,7 @@ class Plat
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 15,
-     *      max = 300,
+     *      max = 1000,
      *      minMessage = "La description est trop court",
      *      maxMessage = "La description est trop long elle ne peut pas dépasser 200 charactère",
      *      allowEmptyString = false
@@ -78,6 +81,17 @@ class Plat
      */
     private $menu;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="plat", cascade={"remove"})
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
+
     /** 
      * @PrePersist
      * @PreUpdate
@@ -89,6 +103,7 @@ class Plat
         }
         return $this;
     }
+
 
     public function getId(): ?int
     {
@@ -178,4 +193,37 @@ class Plat
 
         return $this;
     }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setPlat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getPlat() === $this) {
+                $image->setPlat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
 }
