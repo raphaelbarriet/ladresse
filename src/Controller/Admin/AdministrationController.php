@@ -39,4 +39,18 @@ class AdministrationController extends AbstractController {
       ]);
   }
 
+  /** 
+   * @Route("/admin/info", name="administration.info")
+  */
+  public function info() {
+     return $this->render("admin/administration/info.html.twig");
+  }
+
+  /** 
+   * @Route("/admin/horaire", name="administration.horaire")
+  */
+  public function horaire(){
+     return $this->render("admin/administration/horaire.html.twig");
+  }
+
 }

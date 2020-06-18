@@ -25,15 +25,41 @@
   </div>
 
   <div id="home-menu" class="container my-5">
+
+  <h2 class="section-title my-5 text-center">Notre histoire :</h2>
+
+   <div class="row my-7 bg-light shadow p-3 bg-white rounded" style="min-height:400px">
+     <div class="col-md-6">
+      <img src="{{coverImage}}" class="img-fluid my-3">
+      <h3 class="my-3">Le restaurant :</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sequi ullam laudantium harum a tempora et quod delectus obcaecati quidem, magnam autem molestias unde eaque, beatae temporibus rerum nesciunt maxime?</p>
+      <p><strong>Aujourd'hui</strong> le restaurant est ouvert de 8h a 20h</p>
+     </div>
+     <div class="col-md-5">
+       <h2 class="my-3 text-center">L'Equipe : </h2>
+       <div class="row my-5">
+         <div class="col-4 d-flex justify-content-center" style="max-height:120px">
+           <img src="https://picsum.photos/id/237/200/300" class="img-fluid" alt="">
+         </div>
+         <div class="col-8"> 
+            <h4>Notre chef :</h4>
+           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis ducimus ut hic, consequatur ex ea dolor optio sint similique possimus, aperiam, modi perspiciatis quasi voluptatibus praesentium quas numquam quos ab.</p>
+         </div>
+       </div>
+     </div>
+   </div>
+
+  <h2 class="text-center my-5 section-title">Nos plat a la Une</h2>
+
      {% for plat in plats %}
         <div class="menu-container mb-5 reveal">
-           <div class="row d-flex justify-content-center">
+           <div class="row">
             <div class="menu-card card shadow p-3 bg-white rounded col-md-4 ">
                  <div class="card-body">
                     {% if plat.images | length > 0 %}
                     {% for image in plat.images %}
                        {% if loop.first %}
-                          <img src="/build/images/plat/{{image.imageName}}" style="width: 360px" class="img-fluid">
+                          <img src="/upload_images/plat/{{image.imageName}}" style="width: 360px" class="img-fluid">
                        {% endif %}
                     {% endfor %}
                     {% else %}
@@ -51,6 +77,7 @@
            </div>
        </div>
      {% endfor %}
+
   </div>
 
 

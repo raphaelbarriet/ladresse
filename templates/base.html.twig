@@ -24,7 +24,7 @@
         <a class="nav-link" href="{{path("menu.index")}}">Menu<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="{{path('information.index')}}">Plus d'information</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">NewlLetter</a>
@@ -33,6 +33,15 @@
   </div>
 </nav>
 {#EndNavbar#}
+  {% for label, messages in app.flashes %}
+     {% for message in messages %}
+       <div class="container mt-4">
+         <div class="alert alert-{{label}}">
+        <p class="text-center">{{message}}</p>
+       </div>
+       </div>
+     {% endfor %}
+   {% endfor %}
 
         {% block body %}{% endblock %}
 
@@ -46,7 +55,8 @@
             <a target="_blank" href="#"><i class="fab fa-instagram"></i></a>
             <a target="_blank" href="https://www.google.com/search?q=l%27adresse+thouars&rlz=1C1NDCM_frFR864FR864&oq=l%27adr&aqs=chrome.0.69i59l3j69i57j0j69i61l3.1815j0j7&sourceid=chrome&ie=UTF-8"><i class="fab fa-google"></i></a>
          </h3>
-       <p class="mt-5">Adress: 2 bd de diepholz 79100 THOUARS. Nous somme situé en plein dans la gallerie marchande!</p>
+         <small class="text-light">Nous contacter ou trouver plus d'information sur ce <a class="badge badge-light rounded" href="{{path('information.index')}}">lien</a></small>
+       <p class="mt-5 text-light">Adresse: 2 bd de diepholz 79100 THOUARS. Nous somme situé en plein dans la gallerie marchande!</p>
      </div>
      <div class="col-md-6 mb-4">
        <iframe class="widget" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.010006805647!2d-0.19868498439108617!3d46.98113807914809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807907e4bf15af1%3A0x2523ddf32bebc73d!2s2%20Boulevard%20de%20Diepholz%2C%2079100%20Thouars!5e0!3m2!1sfr!2sfr!4v1591813414958!5m2!1sfr!2sfr" width="100%" height="300px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>

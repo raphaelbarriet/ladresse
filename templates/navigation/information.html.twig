@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+  <div class="container">
+    <div class="row" style="min-height: 600px">
+      <div class="col-md-7 my-5 shadow p-3 mb-5 bg-white rounded">
+        <h2 class="ml-3 mt-2">Les horaires : </h2>
+        <div class="row my-3">
+            <div class="col-6">
+              <p class="my-3">Le restaurant est ouvert du lundi au samedi sauf les jours ferié au horaire suivante : </p>
+              <p class="my-3"> *Les horaires d'ouvertures et de fermetures peuvent être modifiés en fonction de l'influence du Restaurant.</p>
+            </div>
+            <div class="col-6">
+              <ul class="list-group">
+               <li class="list-group-item">Lundi : 10h-20h</li>
+               <li class="list-group-item">Mardi : 10h-20h</li>
+               <li class="list-group-item">Mercredi : 8h-20h</li>
+               <li class="list-group-item">jeudi : 10h-20h</li>
+               <li class="list-group-item">Vendredi : 10h-23h</li>
+               <li class="list-group-item">Samedi : 10h-00h</li>
+               <li class="list-group-item">Dimanche : Fermée</li>
+              </ul>
+            </div>
+               
+            <div class="contact-phone">
+             <h3 class="ml-3 my-4">Nous télèphoner</h3>
+             <p>Si vous avez d'autres questions vous pouvez nous joindre directement au <a href="tel:0638376343">06 38 37 63 43</a></p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-5 my-5 text-center">
+        <h2 class="my-4">Nous contacter : </h2>
+        {{form_start(form)}}
+          {{form_widget(form)}}
+          <button class="btn btn-primary mt-4 float-right" type="submit">Soumettre</button>
+        {{form_end(form)}}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
