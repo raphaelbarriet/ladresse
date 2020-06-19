@@ -1,0 +1,12 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+  <div class="container shadow bg-white rounded p-3 my-5">
+    <h1 class="my-4">Ajouter un menbre a l'équipe :</h1>
+    {{form_start(form)}}
+      {{form_widget(form)}}
+      <button class="btn btn-primary my-4">Ajouté</button>
+    {{form_end(form)}}
+  </div>
+
+{% endblock %}

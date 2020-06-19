@@ -43,7 +43,7 @@ class CartGestionController extends AbstractController {
           return $this->redirectToRoute("administration.menu");
        }
 
-      return $this->render('admin/administration/plat_form.html.twig', [
+      return $this->render('admin/administration/form/plat_form.html.twig', [
         "form" => $form->createView(),
       ]);
    }
@@ -74,7 +74,7 @@ class CartGestionController extends AbstractController {
         $this->em->flush();
         return $this->redirectToRoute("administration.menu");
       }
-      return $this->render('admin/administration/plat_form.html.twig', [
+      return $this->render('admin/administration/form/plat_form.html.twig', [
         "form" => $form->createView(),
       ]);
    }

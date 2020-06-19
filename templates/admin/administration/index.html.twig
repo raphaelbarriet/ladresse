@@ -4,9 +4,9 @@
   {% block body %}
   
    <div class="container-fluid">
-       <div class="row">
+       <div class="row my-5">
        <div class="col-md-4">
-         <div class="card text-dark bg-light  mt-3" >
+         <div class="card text-dark bg-light " >
              <div class="card-header">
                 <h2 class="card-title">Information sur le site : </h2>
              </div>
@@ -15,20 +15,25 @@
                  <p class="card-text">Vous proposer aujourd'hui {{menu.menu('menu') | length}} plats dont {{menu.entry | length}} entrées {{menu.mainDish | length}} plat et {{menu.dessert | length}} dessert</p>
               </div>
               <div class="card-body">
-                <h4 class="card-title"><i class="far fa-calendar-times mr-2"></i>Nombre d'évenement a venir:</h4>
-               <p class="card-text">Vous avez 4 évènements de programmer!</p>
-              </div>
-              <div class="card-body">
                 <h4 class="card-title"><i class="fas fa-door-open mr-2"></i>Horaire d'ouverture:</h4>
-               <p class="card-text">Aujourd'hui vous ouvrer a 8h et fermer a 20h</p>
+                {% if today %}
+                  <p class="card-text">Aujourd'hui vous ouvrer a {{today.openHours.open}}h et fermer a {{today.openHours.closed}}h</p>
+                 {% else %}
+                   <p class="card-text">Aujourd'hui vous êtes fermée</p>
+                {% endif %}
               </div>
               <div class="card-body">
-                <h4 class="card-title"><i class="far fa-eye"></i>Nombre de visite:</h4>
-               <p class="card-text">Le site a été visiter plus de 2000 fois</p>
+                <h4 class="card-title"><i class="fas fa-door-open mr-2"></i>Nombre d'inscrit a la newsletter:</h4>
+               <p class="card-text">Vous avez 100 personnes inscrite a la newsletter</p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><a target="_blank" href="{{path('home.index')}}"><i class="far fa-eye mr-2"></i>Voir le site</a></h4>
               </div>
          </div>
        </div>
-       <div class="col-md-8"></div>
+       <div class="col-md-8">
+         <h2 class="text-center">Info newsletter : </h2>
+       </div>
        </div>
    </div>
   

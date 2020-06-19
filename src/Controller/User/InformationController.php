@@ -4,6 +4,7 @@ namespace App\Controller\User;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\DaysRepository;
 use App\Service\Notification\ContactNotification;
 use Monolog\Handler\SwiftMailerHandler;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +16,7 @@ class InformationController extends AbstractController {
 /** 
  * @Route("/restaurant/information", name="information.index")
 */
-public function information(Request $request, ContactNotification $notification){
+public function information(Request $request, ContactNotification $notification, DaysRepository $daysRepository){
     $contact = new Contact();
     $form = $this->createForm(ContactType::class , $contact);
     $form->handleRequest($request);
@@ -28,6 +29,7 @@ public function information(Request $request, ContactNotification $notification)
 
     return $this->render("navigation/information.html.twig", [
         "form" => $form->createView(),
+        "days" => $daysRepository->findAll(),
     ]);
 }
 

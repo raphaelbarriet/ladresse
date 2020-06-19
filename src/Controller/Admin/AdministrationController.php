@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Repository\DaysRepository;
+use App\Repository\StaffRepository;
 use App\Service\MenuFilter;
+use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +26,10 @@ class AdministrationController extends AbstractController {
   /** 
    * @Route("/admin", name="administration.index")
   */
-  public function index(){
+  public function index(DaysRepository $days){
       return $this->render("admin/administration/index.html.twig", [
           'menu' => $this->menuFilter,
+          'today' => date("w") === 0 ? null : $days->find(date("w")),
       ]);
   }
 
@@ -42,15 +46,12 @@ class AdministrationController extends AbstractController {
   /** 
    * @Route("/admin/info", name="administration.info")
   */
-  public function info() {
-     return $this->render("admin/administration/info.html.twig");
+  public function info(DaysRepository $days, StaffRepository $staff) {
+     return $this->render("admin/administration/info.html.twig", [
+         "days" => $days->findAll(),
+         "staff" => $staff->findAll(),
+     ]);
   }
 
-  /** 
-   * @Route("/admin/horaire", name="administration.horaire")
-  */
-  public function horaire(){
-     return $this->render("admin/administration/horaire.html.twig");
-  }
 
 }

@@ -1,0 +1,29 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+  <div class="container">
+     <div class="shadow my-5 p-3 mb-5 bg-white rounded">
+    <h1 class="my-5">Modifier les horaires d'ouverture</h1>
+  
+    <h4 class="my-3">Journée : {{day.dayName}}</h4>
+
+    {{form_start(form)}}
+        <div class="row">
+           <div class="col-md-6">
+             {{form_row(form.open)}}
+           </div>
+           <div class="col-md-6">
+             {{form_row(form.closed)}}
+           </div>
+       </div>
+       <div class="form-groupe">
+         <button class="btn btn-primary my-5">Modifié</button>
+       </div>
+    {{form_end(form)}}
+    </div>
+  </div>
+
+
+
+{% endblock %}
