@@ -25,12 +25,12 @@
 
 .reveal {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateY(30px);
 }
 
 .reveal-visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
     transition: 0.8s;
 }
 
@@ -42,8 +42,11 @@ body {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 3.3rem;
+    font-family: 'Great Vibes', cursive;
+    text-transform: none;
 }
+
 
 .footer {
     width: 100%;
@@ -72,6 +75,24 @@ body {
 .widget {
     margin-top: 50px;
 }
+
+.error-status {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.error-status > span {
+    color: rgb(167, 27, 2);
+    padding: 0 12px
+}
+
+.container-error {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 @media screen and (min-width: 500px){
     .title-footer{

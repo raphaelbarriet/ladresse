@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Error{% endblock %}
+
+{% block body %}
+
+ <div class="container container-error">
+ <div class="card border-secondary mb-3 my-5 shadow p-3" style="max-width: 38rem;">
+       <div class="card-body">
+        <h1 class="card-title text-center mt-3 mb-5 error-status" style="text-transform: capitalize;">Ooops</h1>
+         <p class="card-text text-center">Une erreur c'est produite. Veuillez essayer de reactualiser la page!</p>
+       </div>
+    </div>
+
+      <p>Cliquer <u><a href="{{path('home.index')}}">ici</a></u>si vous voulez revenir a l'acceuil.</p>
+ </div>
+ </div>
+
+{% endblock %}

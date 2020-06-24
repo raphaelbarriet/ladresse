@@ -24,7 +24,7 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title"><i class="fas fa-door-open mr-2"></i>Nombre d'inscrit a la newsletter:</h4>
-               <p class="card-text">Vous avez 100 personnes inscrite a la newsletter</p>
+               <p class="card-text">Vous avez {{subscriber}} {% if subscriber > 0 %}personnes {% else %} personne{% endif %} inscrite a la newsletter</p>
               </div>
               <div class="card-body">
                 <h4 class="card-title"><a target="_blank" href="{{path('home.index')}}"><i class="far fa-eye mr-2"></i>Voir le site</a></h4>
@@ -32,7 +32,12 @@
          </div>
        </div>
        <div class="col-md-8">
-         <h2 class="text-center">Info newsletter : </h2>
+         <h2 class="text-center mb-5">Envoyé un mail : </h2>
+
+         {{form_start(form)}}
+          {{form_widget(form)}}
+          <button class="btn btn-primary mt-4">Envoyé</button>
+         {{form_end(form)}}
        </div>
        </div>
    </div>

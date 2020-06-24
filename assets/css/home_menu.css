@@ -17,11 +17,20 @@
 
 .resto-title > h1 {
     font-size: 3rem; 
+    font-family: 'Notable', sans-serif;
+    line-height: 40px;
+}
+
+.history-title {
+    font-family: 'Alfa Slab One', cursive;
+    padding: 10px;
 }
 
 
-.resto-title > span {
+.resto-title > strong {
     font-size: 1.4rem;
+    margin-top: 20px;
+    display: block;
 }
 
 .menu-container {
@@ -44,6 +53,7 @@
 .plat-title > h3 {
     font-weight: 800;
 }
+
 
 
 

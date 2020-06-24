@@ -26,7 +26,13 @@
               <td>{{s.name}}</td>
               <td>{{s.statu}}</td>
               <td>{{s.description}}</td>
-              <td>Pas d'image</td>
+              <td>
+               {% if s.imageName %}
+                 <img src="/upload_images/staff/{{s.imageName}}" style="width:50px; height: 50px">
+                 {% else %}
+                   Pas d'image
+               {% endif %}
+              </td>
               <td>
                <div class="row">
                   <div class="col-6">

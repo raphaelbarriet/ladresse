@@ -8,10 +8,10 @@
       <div class="col-md-7 my-5 shadow p-3 mb-5 bg-white rounded">
         <h2 class="ml-3 mt-2">Les horaires : </h2>
         <div class="row my-3">
-            <div class="col-7">
+            <div class="col-md-7">
               <p class="my-3">Le restaurant est ouvert du lundi au samedi sauf les jours ferié au horaire suivante : </p>
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
               <ul class="list-group">
                {% for day in days %}
                  <li class="list-group-item">{{day.dayName}} : {{day.openHours.open}}h-{{day.openHours.closed}}h</li>
@@ -21,7 +21,7 @@
             </div>
                
             <div class="contact-phone container">
-             <h3 class="ml-3 my-4">Nous téléphoner</h3>
+             <h3 class="ml-3 my-4">Nous téléphoner :</h3>
              <p>Si vous avez d'autres questions vous pouvez nous joindre directement au <a href="tel:0638376343">06 38 37 63 43</a></p>
             </div>
              <div class="container">
