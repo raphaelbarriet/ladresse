@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nos cocktail{% endblock %}
+
+{% block body %}
+
+  <div class="container container-cocktail shadow rounded">
+     <div class="information-cocktail rounded">
+      <div class="row-information-cocktail">
+       <h1 class="cocktail-menu">Cocktails Menu</h1>
+        {% for cocktail in cocktails %}
+          <div class="row">
+         <div class="p-3 col-3 d-flex justify-content-center">
+           <img src="upload_images/cocktails/{{cocktail.imageName}}" class="img-fluid img-cocktail">
+         </div>
+         <div class="col-9">
+              <h2 class="cocktail-title mb-3"><span class="underligne">{{cocktail.name}}</span></h2>
+              <p class="description-cocktail">{{cocktail.description}}</p>
+              <small class="text-white">{{cocktail.ingredients}}</small>
+         </div>
+        </div>
+        {% endfor %}
+      </div>
+     </div>
+  </div>
+
+{% endblock %}

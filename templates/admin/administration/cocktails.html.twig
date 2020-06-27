@@ -1,0 +1,52 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Gestion cocktails{% endblock %}
+
+{% block body %}
+
+  <div class="container">
+
+  <h1 class="my-5">Gestion des cocktails</h1>
+
+    <div class="table-responsive">
+     <table class="table">
+        <thead>
+          <tr>
+             <th>Nom</th>
+             <th>Description</th>
+             <th>Ingredient</th>
+             <th>Image</th>
+             <th><a href="{{path("cocktail.add")}}" class="badge badge-success "><i class="fas fa-plus"></i></a></th>
+          </tr>
+        </thead>
+       <tbody>
+         {% if cocktails %}
+          {% for cocktail in cocktails %}
+           <tr>
+            <td>{{cocktail.name}}</td>
+            <td>{{cocktail.description}}</td>
+            <td>{{cocktail.ingredients}}</td>
+            <td>
+              <img src="/upload_images/cocktails/{{cocktail.imageName}}" style="width:50px; height: 50px">
+            </td>
+            <td>
+             <div class="row">
+              <div class="col-6"><a href="{{path('cocktails.update', {'id' : cocktail.id})}}" class="badge badge-info"><i class="fas fa-pen"></i></a></div>
+              <div class="col-6"><a href="{{path('cocktails.remove', {'id' : cocktail.id})}}" class="badge badge-danger"><i class="fas fa-trash"></i></a></div>
+             </div>
+            </td>
+           </tr>
+         {% endfor %}
+         {% else %}
+           <tr>
+            <td>
+             <h2>Vous n'avez pas encore ajouté de cocktails</h2>
+            </td>
+           </tr>
+         {% endif %}
+       </tbody>
+     </table>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+.container-cocktail {
+    height: 1200px;
+    background-image: url(../images/tropical.jpg);
+    margin-top: 40px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cocktail-menu {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.img-cocktail {
+   display: block;
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+   transform: translateX(10px);
+}
+
+.cocktail-title {
+    color: white;
+    font-size: 15px;
+    font-family: 'Notable', cursive;
+    text-decoration: none;
+}
+
+.underligne {
+    background: linear-gradient(to top, rgba(255, 0, 0, 0.4) 0%, rgba(255, 0, 0, 0.4) 5px, transparent 5px) no-repeat;
+    background-size: 100% 100%;
+}
+
+.underligne:hover {
+    animation: deroulement 0.6s ;
+}
+
+
+.description-cocktail {
+    font-size: 9px;
+    color: white;
+}
+
+.information-cocktail {
+    width: 97%;
+    height: 97%;
+    background: rgba(0, 0, 0, 0.6) ;
+    border: 6px white solid;
+}
+
+@keyframes deroulement {
+    from {
+        background-size: 0% 100%;
+    }  
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .information-cocktail {
+      width: 90%;
+      height: 90%;
+    }
+
+    .img-cocktail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cocktail-title {
+        font-size: 18px;
+    }
+
+    .cocktail-menu {
+        font-size: 35px;
+    }
+    .description-cocktail {
+        font-size: 12px;
+    }
+    
+}
+
+@media screen and (min-width: 800px){
+    .img-cocktail {
+        width: 130px;
+        height: 130px;
+    }
+     .cocktail-menu {
+      font-size: 50px;
+    }
+    .cocktail-title {
+        font-size: 22px;
+    }
+
+    .description-cocktail {
+       font-size: 14px;
+    }
+}

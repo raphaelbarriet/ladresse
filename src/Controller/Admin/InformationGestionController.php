@@ -41,7 +41,7 @@ class InformationGestionController extends AbstractController {
     }
 
     /** 
-     * @Route("/admin/create/staff", name="staff.create")
+     * @Route("/admin/staff/create", name="staff.create")
      */
     public function create_staff(Request $request){
         $staff = new Staff();

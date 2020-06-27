@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\MessageToSubscriber;
 use App\Form\MessageToSubscriberType;
+use App\Repository\CocktailRepository;
 use App\Repository\DaysRepository;
 use App\Repository\StaffRepository;
 use App\Repository\SubscriberRepository;
@@ -68,6 +69,15 @@ class AdministrationController extends AbstractController {
          "days" => $days->findAll(),
          "staff" => $staff->findAll(),
      ]);
+  }
+
+  /** 
+   * @Route("/admin/cocktail", name="administration.cocktails")
+  */
+  public function cocktails(CocktailRepository $cocktailRepository){
+    return $this->render("admin/administration/cocktails.html.twig", [
+        'cocktails' => $cocktailRepository->findAll(),
+    ]);
   }
 
 
