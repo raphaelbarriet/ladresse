@@ -10,8 +10,8 @@
        <h1 class="cocktail-menu">Cocktails Menu</h1>
         {% for cocktail in cocktails %}
           <div class="row">
-         <div class="p-3 col-3 d-flex justify-content-center">
-           <img src="upload_images/cocktails/{{cocktail.imageName}}" class="img-fluid img-cocktail">
+          <div class="p-3 col-3 d-flex justify-content-center">
+           <img src="upload_images/cocktails/{{cocktail.imageName}}" class="img-cocktail img-lightbox img-fluid">
          </div>
          <div class="col-9">
               <h2 class="cocktail-title mb-3"><span class="underligne">{{cocktail.name}}</span></h2>
@@ -24,4 +24,14 @@
      </div>
   </div>
 
+  {#
+  <div class="lightbox">
+     <button class="close-lightbox btn btn-danger rounded"><i class="fas fa-times"></i></button>
+       <div class="lightbox-container">
+         <img src="https://picsum.photos/seed/picsum/600/800">
+      </div>
+  </div>
+  #}
+
 {% endblock %}
+

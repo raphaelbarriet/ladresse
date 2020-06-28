@@ -10,6 +10,7 @@ import '../css/app.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
  import $ from 'jquery';
+ import lightbox from "./service/lightbox.js"
  require('popper.js')
  require('bootstrap')
 

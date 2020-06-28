@@ -87,7 +87,7 @@
 }
 
 @media screen and (min-width: 800px){
-    .img-cocktail {
+    .img-cocktail   {
         width: 130px;
         height: 130px;
     }
