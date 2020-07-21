@@ -1,0 +1,32 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~js/addImage~js/homeMenu.js",
+        "/build/vendors~app~js/addImage.js",
+        "/build/vendors~app.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/app.css"
+      ]
+    },
+    "js/homeMenu": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~js/addImage~js/homeMenu.js",
+        "/build/js/homeMenu.js"
+      ]
+    },
+    "js/addImage": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~app~js/addImage~js/homeMenu.js",
+        "/build/vendors~app~js/addImage.js",
+        "/build/vendors~js/addImage.js",
+        "/build/js/addImage.js"
+      ]
+    }
+  }
+}

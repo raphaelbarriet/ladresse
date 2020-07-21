@@ -1,0 +1,22 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/js/addImage.js": "/build/js/addImage.js",
+  "build/js/homeMenu.js": "/build/js/homeMenu.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors~app.js": "/build/vendors~app.js",
+  "build/vendors~app~js/addImage.js": "/build/vendors~app~js/addImage.js",
+  "build/vendors~app~js/addImage~js/homeMenu.js": "/build/vendors~app~js/addImage~js/homeMenu.js",
+  "build/vendors~js/addImage.js": "/build/vendors~js/addImage.js",
+  "build/images/adresse-1000.jpg": "/build/images/adresse-1000.jpg",
+  "build/images/adresse-1500.jpg": "/build/images/adresse-1500.jpg",
+  "build/images/adresse-2085.jpg": "/build/images/adresse-2085.jpg",
+  "build/images/adresse-500.jpg": "/build/images/adresse-500.jpg",
+  "build/images/background-menu.jpg": "/build/images/background-menu.jpg",
+  "build/images/cocktail.jpg": "/build/images/cocktail.jpg",
+  "build/images/coverImage.jpg": "/build/images/coverImage.jpg",
+  "build/images/hamburger.jpg": "/build/images/hamburger.jpg",
+  "build/images/info.jpg": "/build/images/info.jpg",
+  "build/images/slate.jpg": "/build/images/slate.jpg",
+  "build/images/summer.jpg": "/build/images/summer.jpg"
+}
