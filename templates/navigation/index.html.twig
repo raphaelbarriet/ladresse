@@ -5,33 +5,34 @@
 {% block body %}
 
 {#Images#}
-{% set coverImage = asset('build/images/coverImage.jpg') %}
-{% set cuisine = asset('build/images/cuisine.jpg') %}
+{% set resto = asset('build/images/coverImage.jpg') %}
+{% set coverImage = asset('build/images/adresse-1500.jpg') %}
 {% set hamburger = asset('build/images/hamburger.jpg') %}
 {#EndImages#}
 
   <div class="cover-image">
      <img 
-       src="{{ cuisine }}"
-       class="img-fluid op-6" 
+       srcset="{{asset('build/images/adresse-500.jpg')}} 500w,
+               {{asset('build/images/adresse-2085.jpg')}} 2080w"
+       src="{{ coverImage }}"
+       class="img-fluid" 
        style="width:100%" 
      />
-      <div class="resto-title">
-          <h1>L'adresse</h1> <br>
-          <strong>(bar, brasserie et café)</strong>
-      </div>
   </div>
 
-  <div id="home-menu" class="container my-5">
-
-  <h2 class="section-title my-5 text-center"><u>Un peu d'histoire:</u></h2>
-
+  <div id="home-menu" class="container">
    <div class="row bg-light shadow bg-white rounded p-3" style="min-height:400px">
      <div class="col-md-6">
        <h3 class="mt-3 mb-4 history-title">Le restaurant :</h3>
-      <img src="{{coverImage}}" class="mb-5 img-fluid rounded img-lightbox">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sequi ullam laudantium harum a tempora et quod delectus obcaecati quidem, magnam autem molestias unde eaque, beatae temporibus rerum nesciunt maxime?</p>
-      <p><strong>Aujourd'hui</strong> le restaurant est ouvert de 8h a 20h</p>
+      <img src="{{resto}}" class="mb-5 img-fluid rounded img-lightbox">
+      <p>L’adresse Bar Restaurant d’ambiance Bar a Vins , cocktails et Bières Terrasse lounge et Musicale Restaurant Brasserie traditionnelle. Carte de produits frais cuisine maison Burgers et salades de saison. Services le Midi du Lundi au samedi. Services le Soir du jeudi au samedi
+      Planche apéro tous les jours Pour le Goûter Pâtisseries, Glaces et dessert à la carte. Fermé le Dimanche Réservation conseillée, réservation groupe à partir de 20 personnes. </p>
+      <p><strong>Aujourd'hui</strong> le restaurant est 
+      {% if today  %}
+       <u>ouvert de {{today.getOpenHours.getOpen}}h a {{today.getOpenHours.getClosed}}h</u>
+      {% else %}
+      <u>  fermée </u>
+      {% endif %}</p>
      </div>
      <div class="col-md-5">
        <h2 class="my-3 text-center history-title">Qui somme nous : </h2>
@@ -55,7 +56,7 @@
         <div class="menu-container mb-5 reveal">
            <div class="row">
             <div class="menu-card card shadow bg-white rounded col-md-4 p-3">
-                 <div class="card-body">
+                 <div class="">
                     {% if plat.images | length > 0 %}
                     {% for image in plat.images %}
                        {% if loop.first %}
@@ -65,7 +66,6 @@
                     {% else %}
                     <img src="{{hamburger}}" style="width: 360px" class="img-lightbox img-fluid rounded">   
                     {% endif %}
-                    <h4 class="card-title text-center mt-4">{{plat.name}}</h4>
                  </div>
             </div>
                <div class="col-md-6 ml-5 mt-5">

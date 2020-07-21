@@ -3,8 +3,10 @@
 namespace App\DataFixtures;
 
 use App\Entity\Categories;
+use App\Entity\Days;
 use App\Entity\Image;
 use App\Entity\Menu;
+use App\Entity\OpeningTime;
 use Faker\Factory;
 use App\Entity\Plat;
 use App\Entity\User;
@@ -27,10 +29,12 @@ class AppFixtures extends Fixture
     {
         $categoriesName = ["entrée", "plat", "dessert", "salade"];
         $menusName = ["menu du jour", "menu", 'provisoire'];
+        $daysName = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
         $faker = Factory::create();
         $faker->addProvider(new Restaurant($faker));
         $menus = [];
         $categories=[];
+        $openingTime = [];
 
         $admin = new User();
         $password = $this->encoder->encodePassword($admin, "admin");
@@ -63,6 +67,22 @@ class AppFixtures extends Fixture
 
              $manager->persist($plat);
          }
+
+         for($o = 0; $o < 6; $o++){
+             $opening = new OpeningTime();
+             $openingTime[] = $opening;
+             $opening->setOpen(10)
+                     ->setClosed(18);
+             $manager->persist($opening);
+         }
+
+         foreach($daysName as $k => $dayName) {
+             $day = (new Days())
+             ->setDayName($dayName)
+             ->setOpenHours($openingTime[$k]);
+             $manager->persist($day);
+         }
+
 
         $manager->flush();
     }

@@ -33,4 +33,11 @@ public function information(Request $request, ContactNotification $notification,
     ]);
 }
 
+/**
+ * @Route("/restaurant/mention-legale", name="information.mention")
+ */
+public function mention() {
+  return $this->render("navigation/mention_legale.html.twig");
+}
+
 }
